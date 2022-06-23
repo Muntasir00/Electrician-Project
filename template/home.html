@@ -1,0 +1,419 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Electrician Home</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- normalize css -->
+  <link rel="stylesheet" href="{% static 'resources/normalize.css' %}">
+  <!-- font -->
+  <link rel="stylesheet" href="{% static 'resources/font.css' %}">
+  <!-- font awesome cdn -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous" />
+  
+  <!-- owl carousel -->
+  <link rel="stylesheet" href="{% static 'resources/OwlCarousel2-2.3.4/dist/assets/owl.carousel.css' %}">
+  <link rel="stylesheet" href="{% static 'resources/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.css' %}">
+  <!-- animate css -->
+  <link rel="stylesheet" href="{% static 'resources/animate.css-main/animate.css' %}">
+  <!-- custom (main) css -->
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+</head>
+
+<body>
+
+  <!-- header -->
+  <header class="header" id="intro">
+    <nav class="navbar">
+      <div class="container">
+        <div class="brand-and-toggler">
+          <a href="{% url 'home' %}" class="navbar-brand">
+            Hire<span> Your </span> Electrician
+          </a>
+          <button type="button" class="navbar-toggler" id="navbar-toggler">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+
+        <div class="navbar-collapse">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="{% url 'about' %}" class="nav-link">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'electrician' %}" class="nav-link">Electrician</a>
+            </li>
+            <li class="nav-item">
+              <a href="#pricing" class="nav-link">pricing</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'contact' %}" class="nav-link">contact</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a href="" class="nav-link">Welcome : {{user.username}}</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'logout' %}" class="nav-link">Logout</a>
+            </li>
+            
+            {% else %}
+            <li class="nav-item">
+              <a href="{% url 'login' %}" class="nav-link trigger">LogIn</a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Start The Modal -->
+    <!-- <div id="popup" class="overly">
+      <div class="wrapper">
+        <a href="#" class="close">&times;</a>
+        <div class="column details">
+          <div class="signin">
+            <h1>Sign in</h1>
+            <input type="email" placeholder="Username">
+            <input type="password" placeholder="Password">
+            <a href="#">Forget Password</a>
+            <button class="form-submit">Sign in</button>
+            <span> 
+              You don't have an account yet?
+              <button id="signup">Create it now</button>
+            </span>
+          </div>
+
+          <div class="signup">
+            <h1>Sign up</h1>
+            <input type="name" placeholder="Full Name">
+            <input type="email" placeholder="Username">
+            <input type="password" placeholder="Password">
+            <button class="form-submit">sign Up</button>
+            <span>
+              Already have an account?
+              <button id="signin">Sign In</button>
+            </span>
+          </div>
+
+        </div>
+        <div class="column content">
+          <div class="signin">
+            <h1>Welcome Back!</h1>
+            <p>To keep connected with us please login with your personal info</p>
+          </div>
+          <div class="signup">
+            <h1>Hello, Friend!</h1>
+            <p>Enter your personal details and start journey with us</p>
+          </div>
+
+        </div>
+      </div>
+    </div> -->
+    <!-- End The Modal -->
+
+    <div class="hero-div center container">
+      <h1>Hire an electrician from Dublin</h1>
+      <p class="animate__animated animate__fadeInUp animate__slow">The best way to connect an electrician in need</p>
+
+      <div class="hero-btns animate__animated animate__fadeInUp animate__slow">
+        <a href="#detail"><button type="button" class="btn-trans">learn more</button></a>
+        <a href="{% url 'electrician' %}"><button type="button" class="btn-white">meet our people</button></a>
+      </div>
+    </div>
+  </header>
+  <!-- end of header -->
+
+  <!-- detail section -->
+  <section class="detail" id="detail">
+    <div class="container">
+      <div class="row">
+        <div class="detail-item wow animate__animated animate__fadeInLeft animate__slow">
+          <span><i class="fas fa-tablet-alt"></i></span>
+          <h2>Responsive Design</h2>
+          <div class="line"></div>
+          <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam provident suscipit culpa minus
+            aliquid possimus, nemo ducimus amet itaque nam quis quaerat debitis. Quis, quidem.</p>
+        </div>
+
+        <div class="detail-item wow animate__animated animate__fadeInUp animate__s">
+          <span><i class="fab fa-html5"></i></span>
+          <h2>HTML5</h2>
+          <div class="line"></div>
+          <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam provident suscipit culpa minus
+            aliquid possimus, nemo ducimus amet itaque nam quis quaerat debitis. Quis, quidem.</p>
+        </div>
+
+        <div class="detail-item wow animate__animated animate__fadeInRight animate__slow">
+          <span><i class="far fa-bell"></i></span>
+          <h2>24 Hour Support</h2>
+          <div class="line"></div>
+          <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam provident suscipit culpa minus
+            aliquid possimus, nemo ducimus amet itaque nam quis quaerat debitis. Quis, quidem.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end of detial section -->
+
+  <!-- features section -->
+  <section class="feature" id="feature">
+    <div class="container">
+      <div class="row">
+        <div class="feature-left wow animate__animated animate__fadeInUp animate__slow">
+          <img src="{% static 'assets/electricians-with-tools-electric-service-workers.webp' %}" alt="">
+        </div>
+        <div class="feature-right wow animate__animated animate__fadeInUp animate__slow">
+          <div class="title">
+            <h2>About our service</h2>
+            <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio earum fugiat culpa
+              laborum porro modi?</p>
+          </div>
+
+          <div class="feature-item">
+            <span><i class="fas fa-tablet-alt"></i></span>
+            <div>
+              <h3>Explore our electrician</h3>
+              <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque est minima voluptas
+                cupiditate molestias! Vel.</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <span><i class="fas fa-clone"></i></span>
+            <div>
+              <h3>Hire Electrician</h3>
+              <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque est minima voluptas
+                cupiditate molestias! Vel.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end of features section -->
+
+  <!-- team section -->
+  <!-- <section class="team" id="team">
+    <div class="container">
+      <div class="title">
+        <h2 class="wow animate__animated animate__bounceIn animate__slow">Meet Best Electrician</h2>
+        <p class="text">Lorem ipsum dolor sit amet consectetur</p>
+      </div>
+
+      <div class="row owl-carousel owl-theme wow animate__animated animate__fadeInUp animate__slow">
+        <div class="team-item">
+          <div class="team-img">
+            <img src="{% static 'assets/team-1.jpg' %}" alt="">
+          </div>
+          <div class="team-info">
+            <h3>Full Name Here</h3>
+            <span>Electrician</span>
+          </div>
+        </div>
+
+        <div class="team-item">
+          <div class="team-img">
+            <img src="{% static 'assets/team-2.jpg' %}" alt="">
+          </div>
+          <div class="team-info">
+            <h3>Full Name Here</h3>
+            <span>Electrician</span>
+          </div>
+        </div>
+
+        <div class="team-item">
+          <div class="team-img">
+            <img src="{% static 'assets/team-3.jpg' %}" alt="">
+          </div>
+          <div class="team-info">
+            <h3>Full Name Here</h3>
+            <span>Electrician</span>
+          </div>
+        </div>
+
+        <div class="team-item">
+          <div class="team-img">
+            <img src="{% static 'assets/team-4.jpg' %}" alt="">
+          </div>
+          <div class="team-info">
+            <h3>Full Name Here</h3>
+            <span>Electrician</span>
+          </div>
+        </div>
+
+        <div class="team-item">
+          <div class="team-img">
+            <img src="{% static 'assets/team-5.jpg' %}"" alt="">
+
+          </div>
+          <div class="team-info">
+            <h3>Full Name Here</h3>
+            <span>Electrician</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+  <!-- end of team section -->
+
+  <!-- faq section -->
+  <section class="faq">
+    <div class="container">
+      <div class="title">
+        <h2 class="wow animate__animated animate__bounceIn animate__slow">Have Any Questions?</h2>
+        <p class="text">Lorem ipsum dolor sit amet consectetur</p>
+      </div>
+
+      <div class="row wow animate__animated animate__fadeInUp animate__slow">
+        <div class="faq-item">
+          <div class="faq-head">
+            <h3>How to hire an electrician</h3>
+            <span><i class="fas fa-plus"></i></span>
+          </div>
+          <div class="faq-content">
+            <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nisi quis molestiae autem
+              exercitationem sed, asperiores provident aut, quaerat illo ex reiciendis sapiente voluptas quisquam?</p>
+            <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, suscipit! Officiis
+              architecto laboriosam harum officia!</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-head">
+            <h3>How to make payment?</h3>
+            <span><i class="fas fa-plus"></i></span>
+          </div>
+          <div class="faq-content">
+            <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nisi quis molestiae autem
+              exercitationem sed, asperiores provident aut, quaerat illo ex reiciendis sapiente voluptas quisquam?</p>
+            <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, suscipit! Officiis
+              architecto laboriosam harum officia!</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-head">
+            <h3>What if I fail to pay first installment</h3>
+            <span><i class="fas fa-plus"></i></span>
+          </div>
+          <div class="faq-content">
+            <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nisi quis molestiae autem
+              exercitationem sed, asperiores provident aut, quaerat illo ex reiciendis sapiente voluptas quisquam?</p>
+            <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, suscipit! Officiis
+              architecto laboriosam harum officia!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end of faq section -->
+
+  <!-- pricing section -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="title">
+        <h2 class="wow animate__animated animate__bounceIn animate__slow">Our Package</h2>
+        <p class="text">Lorem ipsum dolor sit amet consectetur</p>
+      </div>
+
+      <div class="row wow animate__animated animate__fadeInUp animate__slow">
+        <div class="pricing-item">
+          <h2>Business Version</h2>
+          <div class="price">
+            <span>$ 120</span>
+            <span class="text">Monthly</span>
+          </div>
+          <ul>
+            <li>24 Accounts</li>
+            <li>10 GB Storage</li>
+            <li>Lifetime Support</li>
+            <li>Reliable Service</li>
+          </ul>
+        </div>
+
+        <div class="pricing-item">
+          <h2>Professional Version</h2>
+          <div class="price">
+            <span>$ 120</span>
+            <span class="text">Monthly</span>
+          </div>
+          <ul>
+            <li>24 Accounts</li>
+            <li>10 GB Storage</li>
+            <li>Lifetime Support</li>
+            <li>Reliable Service</li>
+          </ul>
+        </div>
+
+        <div class="pricing-item">
+          <h2>Standard Version</h2>
+          <div class="price">
+            <span>$ 120</span>
+            <span class="text">Monthly</span>
+          </div>
+          <ul>
+            <li>24 Accounts</li>
+            <li>10 GB Storage</li>
+            <li>Lifetime Support</li>
+            <li>Reliable Service</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end of pricing section -->
+
+
+  <!-- end of testimonial section -->
+
+  
+
+  <!-- footer -->
+  <footer class="footer center">
+    <div class="container">
+      <p class="text">Copyright &copy; Website | All Rights Reserved</p>
+      <div class="footer-links">
+        <a href="#" class="center">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="center">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" class="center">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="#" class="center">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" class="center">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+  <!-- end of footer -->
+
+
+
+
+
+
+  <!-- jQuery -->
+  <script src="{% static 'resources/jquery-3.5.1.js' %}"></script>
+  <!-- owl carousel -->
+  <script src="{% static 'resources/OwlCarousel2-2.3.4/dist/owl.carousel.js' %}"></script>
+  <!-- wow js -->
+  <script src="{% static 'resources/WOW-master/dist/wow.js' %}"></script>
+  <!-- custom js -->
+  <script src="{% static 'js/script.js' %}"></script>
+</body>
+
+</html>
